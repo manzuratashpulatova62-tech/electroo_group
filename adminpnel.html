@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Ovozlar Boshqaruvi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="adminpanel.css">
+</head>
+<body>
+
+    <div class="admin-container">
+        <h1><i class="fa-solid fa-user-shield"></i> Admin Panel — Ovozlar Boshqaruvi</h1>
+
+        <!-- Umumiy Statistika -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Rasm 1 (Asar 1)</h3>
+                <p id="admin-count-1">0 ovoz</p>
+            </div>
+            <div class="stat-card">
+                <h3>Rasm 2 (Asar 2)</h3>
+                <p id="admin-count-2">0 ovoz</p>
+            </div>
+            <div class="stat-card">
+                <h3>Rasm 3 (Asar 3)</h3>
+                <p id="admin-count-3">0 ovoz</p>
+            </div>
+        </div>
+
+        <!-- Ovoz berganlar ro'yxati -->
+        <h2 class="voters-title">Ovoz bergan raqamlar ro'yxati</h2>
+        <div id="votersList" class="voters-list">
+            <!-- JS orqali dinamik to'ldiriladi -->
+        </div>
+    </div>
+
+    <script src="adminpanel.js"></script>
+</body>
+</html>

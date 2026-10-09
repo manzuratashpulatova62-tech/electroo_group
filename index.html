@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASAR Electro Group</title>
+    <!-- FontAwesome Ikonkalari -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR (Header) -->
+    <header class="navbar">
+        <div class="logo">
+            <h1>ASAR</h1>
+            <span>ELECTRO GROUP</span>
+        </div>
+
+        <!-- Mobil menyu tugmasi -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menyu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="./bosh.html" class="active"><i class="fa-solid fa-house"></i> Bosh sahifa</a>
+            <a href="./hizmatlar.html"><i class="fa-solid fa-bolt"></i> Xizmatlar</a>            
+            <a href="#"><i class="fa-solid fa-phone"></i> Aloqa</a>
+            <a href="./admin.html" class="admin">Admin</a>
+        </nav>   
+      
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <p class="sub-title">ASAR ELECTRO GROUP</p>
+            <h2>Sizning tanlovingiz <br> <span>biz uchun muhim!</span></h2>
+            <p class="description">Quyidagi 3 ta dizayndan qaysi biri sizga ko'proq yoqishini tanlang va ovoz bering!
+            </p>
+        </div>
+    </section>
+
+    <!-- CARDS (Ovoz berish kartalari) -->
+    <section class="cards-container">
+        <!-- Card 1 -->
+        <div class="card" data-id="1">
+            <div class="card-img">
+                <span class="number-badge">1</span>
+                <img src="./asar.jpg" alt="Dizayn 1">
+            </div>
+            <button class="vote-btn" onclick="openVoteModal(1)">
+                <i class="fa-solid fa-chart-simple"></i> Ovoz berish
+            </button>
+            <div class="progress-box">
+                <div class="progress-bar" id="bar-1" style="width: 0%;"></div>
+                <span class="percent" id="percent-1">0% (0 ovoz)</span>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card" data-id="2">
+            <div class="card-img">
+                <span class="number-badge">2</span>
+                <img src="./star.jpg" alt="Dizayn 2">
+            </div>
+            <button class="vote-btn" onclick="openVoteModal(2)">
+                <i class="fa-solid fa-chart-simple"></i> Ovoz berish
+            </button>
+            <div class="progress-box">
+                <div class="progress-bar" id="bar-2" style="width: 0%;"></div>
+                <span class="percent" id="percent-2">0% (0 ovoz)</span>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card" data-id="3">
+            <div class="card-img">
+                <span class="number-badge">3</span>
+                <img src="./staroltin.jpg" alt="Dizayn 3">
+            </div>
+            <button class="vote-btn" onclick="openVoteModal(3)">
+                <i class="fa-solid fa-chart-simple"></i> Ovoz berish
+            </button>
+            <div class="progress-box">
+                <div class="progress-bar" id="bar-3" style="width: 0%;"></div>
+                <span class="percent" id="percent-3">0% (0 ovoz)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS (Statistika) -->
+    <section class="stats-section">
+        <div class="stats-left">
+            <div class="stat-item">
+                <i class="fa-solid fa-users icon"></i>
+                <div>
+                    <p>Biz bilan ishlaydiganlar</p>
+                    <h3>10+</h3>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-bolt icon"></i>
+                <div>
+                    <p>Bajarilgan loyihalar</p>
+                    <h3>80+</h3>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-circle-check icon"></i>
+                <div>
+                    <p>Ishonch</p>
+                    <h3>100%</h3>
+                </div>
+            </div>
+        </div>
+        <div class="stats-right">
+            <p class="handwriting">Sizning tanlovingiz <br> biz uchun muhim!</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <h2>ASAR</h2>
+            <span>ELECTRO GROUP</span>
+        </div>
+        <div class="footer-contact">
+            <a href="#" class="social-icon"><i class="fa-paper-plane"></i></a>
+            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <span class="phone"><i class="fa-solid fa-phone"></i> +998 94 009 67 55</span>
+        </div>
+    </footer>
+
+    <!-- OVOZ BERISH MODAL OYNASI -->
+    <div class="modal-overlay" id="voteModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeVoteModal()">&times;</button>
+            <h3>Ovoz berish</h3>
+            <p>Iltimos, ma'lumotlaringizni kiriting:</p>
+            <form id="voteForm" onsubmit="submitVote(event)">
+                <input type="hidden" id="selectedDesignId">
+                <div class="input-group">
+                    <label for="userName">Ismingiz:</label>
+                    <input type="text" id="userName" placeholder="Masalan: Akbar" required>
+                </div>
+                <div class="input-group">
+                    <label for="userPhone">Telefon raqamingiz:</label>
+                    <input type="tel" id="userPhone" placeholder="+998901234567" required>
+                </div>
+                <button type="submit" class="submit-vote-btn">Ovozni tasdiqlash</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase Realtime Database Kutubxonalari -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+    <script>
+      // Firebase konsolidan olingan o'zingizning loyiha sozlamalaringizni joylashtirasiz
+      const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT.firebaseapp.com",
+        databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
+        projectId: "YOUR_PROJECT",
+        storageBucket: "YOUR_PROJECT.appspot.com",
+        messagingSenderId: "YOUR_SENDER_ID",
+        appId: "YOUR_APP_ID"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      window.db = firebase.database();
+    </script>
+
+    <!-- Asosiy JS Faylingiz -->
+    <script src="./index.js"></script>
+</body>
+
+</html>
